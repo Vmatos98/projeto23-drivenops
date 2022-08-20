@@ -8,17 +8,17 @@ services:
     volumes:
       - drivenops_db:/var/lib/postgresql/data
     env_file:
-      - ./back-end/.env
+      - back-end/.env
       
   drivenops_node_app:
     container_name: drivenops_node_app
-    build: .
+    build: back-end
     ports:
       - "5000:5000"
     depends_on:
       - drivenops_db
     env_file:
-      - ./back-end/.env
+      - back-end/.env
 
   react_app_drivenops:
     container_name: react_app_drivenops
@@ -31,12 +31,14 @@ services:
     build: ./nginx
     ports:
       - "8080:80"
+    volumes:
+      - build_react:/var/www/html
     depends_on:
       - drivenops_db
       - drivenops_node_app
       - react_app_drivenops
-    volumes:
-      - build_react:/var/www/html
+    
 
 volumes:
   drivenops_db:
+  build_react:
