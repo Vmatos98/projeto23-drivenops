@@ -32,5 +32,3 @@ app.get("/students/random", async (req: Request, res: Response) => {
 });
 
 export default app; 
-
-//novo teste
