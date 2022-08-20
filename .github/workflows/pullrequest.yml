@@ -17,3 +17,4 @@ jobs:
       - name: Rodar testes
         run: cd back-end
         run: docker-compose -f docker-compose-tests.yml run drivenops_node_app npm run test
+
