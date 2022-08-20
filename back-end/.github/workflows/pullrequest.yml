@@ -12,7 +12,7 @@ jobs:
           envkey_POSTGRES_USER: "postgres"
           envkey_POSTGRES_PASSWORD: "postgres"
           envkey_POSTGRES_DB: "postgres"
-          envkey_DATABASE_URL: "postgresql://postgres:postgres@db_postgres_github-ci:5432/students__tests"
+          envkey_DATABASE_URL: "postgresql://postgres:postgres@drivenops_db:5432/students__tests"
           file_name: .env.test
       - name: Rodar testes
-        run: docker-compose -f docker-compose-tests.yml run node_app_github-ci npm run test
+        run: docker-compose -f docker-compose-tests.yml run drivenops_node_app npm run test
